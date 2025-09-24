@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>脱衣AIMトレーナー</title>
+    <link rel="stylesheet" href="static/aim_game/css/styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>脱衣AIM</h1>
+        <p>あなたは何枚脱がせられる？</p>
+    </header>
+    <main>
+        <section class="game-setup">
+            <div class="controls">
+                <label for="difficulty-select">難易度</label>
+                <select id="difficulty-select" aria-label="難易度を選択">
+                    <option value="easy">Easy</option>
+                    <option value="normal">Normal</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <button id="start-button">Start</button>
+                <button id="stop-button" disabled>Stop</button>
+            </div>
+            <p class="hint">1回のセッションは60秒。通常ヒットで100ポイント、クリティカルヒットで50ポイント、5連続でコンボボーナスが入ります。</p>
+        </section>
+
+        <section class="game-container">
+            <canvas id="aim-canvas" width="800" height="600" aria-label="Aim trainer arena"></canvas>
+            <div id="countdown-overlay" aria-hidden="true"></div>
+            <div id="finish-banner" aria-hidden="true">Finish</div>
+        </section>
+
+        <section class="game-stats">
+            <h2>Current Session</h2>
+            <ul>
+                <li>Score: <span id="score">0</span></li>
+                <li>Kills: <span id="kills">0</span></li>
+                <li>Accuracy: <span id="accuracy">0%</span></li>
+                <li>Average TTK: <span id="avg-ttk">0 ms</span></li>
+                <li>Max Combo: <span id="max-combo">0</span></li>
+                <li>Misses: <span id="misses">0</span></li>
+                <li>Time Remaining: <span id="time-remaining">0.0 s</span></li>
+            </ul>
+            <div id="game-status" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="recent-results">
+            <h2>Recent Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Played At</th>
+                        <th>Difficulty</th>
+                        <th>Score</th>
+                        <th>Kills</th>
+                        <th>Accuracy</th>
+                        <th>Avg TTK</th>
+                        <th>Max Combo</th>
+                        <th>Misses</th>
+                    </tr>
+                </thead>
+                <tbody id="recent-results-body">
+                    <tr>
+                        <td colspan="8">No games played yet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script id="difficulty-data" type="application/json">
+        {
+            "easy": {
+                "radius": 28,
+                "spawn_interval_ms": [800, 1000],
+                "lifetime_ms": 1600,
+                "speed": [0, 60],
+                "max_concurrent": 3,
+                "critical_threshold_px": 6
+            },
+            "normal": {
+                "radius": 26,
+                "spawn_interval_ms": [700, 950],
+                "lifetime_ms": 1500,
+                "speed": [40, 90],
+                "max_concurrent": 3,
+                "critical_threshold_px": 5
+            },
+            "hard": {
+                "radius": 20,
+                "spawn_interval_ms": [550, 750],
+                "lifetime_ms": 1350,
+                "speed": [80, 140],
+                "max_concurrent": 4,
+                "critical_threshold_px": 4
+            }
+        }
+    </script>
+    <script id="target-assets" type="application/json">
+        {
+            "easy": "static/aim_game/img/target_easy.png",
+            "normal": "static/aim_game/img/target_normal.png",
+            "hard": "static/aim_game/img/target_hard.png"
+        }
+    </script>
+    <script id="audio-assets" type="application/json">
+        {
+            "hit": "static/aim_game/audio/hit.wav",
+            "critical": "static/aim_game/audio/critical.wav",
+            "miss": "static/aim_game/audio/miss.wav",
+            "finish": "static/aim_game/audio/finish.wav",
+            "countdown": "static/aim_game/audio/countdown.wav"
+        }
+    </script>
+    <script id="background-assets" type="application/json">
+        {
+            "stages": [
+                {"threshold": 0, "image": "static/aim_game/img/backgrounds/LoRA_image (2).png"},
+                {"threshold": 10, "image": "static/aim_game/img/backgrounds/LoRA_image.png"},
+                {"threshold": 20, "image": "static/aim_game/img/backgrounds/LoRA_image (3).png"},
+                {"threshold": 30, "image": "static/aim_game/img/backgrounds/LoRA_image (5).png"}
+            ]
+        }
+    </script>
+    <script src="static/aim_game/js/aim_trainer.js"></script>
+</body>
+</html>
