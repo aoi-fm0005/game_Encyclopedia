@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Encyclopedia</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <p class="hero__eyebrow">遊び場ハブ</p>
+      <h1 class="hero__title">お気に入りのブラウザゲームを探そう</h1>
+      <p class="hero__subtitle">ワンクリックでプレイ開始。空いた時間を楽しく彩るタイトルを厳選しました。</p>
+    </header>
+
+    <div class="search-wrapper">
+      <input type="search" id="search-input" class="search-input" placeholder="ゲームを探す..." />
+    </div>
+    <main class="catalog" id="game-catalog" aria-live="polite"></main>
+
+    <footer class="footer">
+      <p>ゲームの追加・編集は <code>games.js</code> を更新するだけで完了します。</p>
+    </footer>
+  </div>
+
+  <template id="game-card-template">
+    <article class="game-card">
+      <div class="game-card__body">
+        <div class="game-card__labels" data-slot="labels"></div>
+        <h2 class="game-card__title" data-slot="title"></h2>
+        <p class="game-card__description" data-slot="description"></p>
+      </div>
+      <a class="game-card__cta" data-slot="cta" target="_blank" rel="noopener" aria-label="ゲームを開く"></a>
+    </article>
+  </template>
+
+  <script src="games.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
