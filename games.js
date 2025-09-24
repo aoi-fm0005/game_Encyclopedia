@@ -21,11 +21,11 @@
   },
   {
     id: "farm-tycoon",
-    title: "Farm Tycoon Mini",
-    description: "Prototype tycoon loop focused on harvest-to-market decisions.",
-    url: "./games/farm-tycoon/index.html",
-    genre: "Simulation",
-    duration: "10-15 min",
+    title: "脱衣AIM",
+    description: "的に当てて、美女を脱がせよう♡",
+    url: "./games/test_gemaes_fm_study/index.html",
+    genre: "shooting",
+    duration: "60 sec",
     platform: "HTML/CSS/JS",
     ctaLabel: "Play"
   }
