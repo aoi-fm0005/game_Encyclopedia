@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ほのぼのタイピング - Pages Edition</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-default-difficulty="easy">
+    <header class="site-header">
+        <h1>ほのぼのタイピング</h1>
+        <p class="tagline">60 秒でどこまで打てるかな？ GitHub Pages で遊んでみよう！</p>
+    </header>
+
+    <main class="layout">
+        <section class="game-panel">
+            <div class="control-row">
+                <label for="difficulty">難易度:</label>
+                <select id="difficulty" class="control">
+                    <option value="easy" selected>かんたん</option>
+                    <option value="normal">ふつう</option>
+                    <option value="hard">むずかしい</option>
+                </select>
+
+                <div class="toggle-group">
+                    <label class="toggle">
+                        <input type="checkbox" id="soundToggle" checked>
+                        <span>効果音</span>
+                    </label>
+                    <label class="toggle">
+                        <input type="checkbox" id="bgmToggle" checked>
+                        <span>BGM</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="status-row">
+                <div class="status-block">
+                    <h2>残り時間</h2>
+                    <p id="timeRemaining" class="status-value">60.0</p>
+                </div>
+                <div class="status-block">
+                    <h2>スコア</h2>
+                    <p id="score" class="status-value">0</p>
+                </div>
+                <div class="status-block">
+                    <h2>成功数</h2>
+                    <p id="successCount" class="status-value">0</p>
+                </div>
+                <div class="status-block">
+                    <h2>精度</h2>
+                    <p id="accuracy" class="status-value">0%</p>
+                </div>
+                <div class="status-block">
+                    <h2>自己ベスト</h2>
+                    <p id="personalBest" class="status-value">--</p>
+                </div>
+            </div>
+
+            <div class="prompt-area">
+                <div class="prompt" id="prompt">スタートボタンを押してね</div>
+                <input id="answerInput" class="answer-input" type="text" placeholder="ローマ字で入力 (Enterで判定)" autocomplete="off" disabled>
+            </div>
+
+            <div class="action-row">
+                <button id="startButton" class="primary">ゲームスタート</button>
+                <span id="feedback" class="feedback"></span>
+            </div>
+        </section>
+
+        <section class="result-panel" aria-live="polite">
+            <h2>結果</h2>
+            <ul class="result-list">
+                <li>スコア: <span id="finalScore">0</span></li>
+                <li>成功数: <span id="finalSuccess">0</span></li>
+                <li>挑戦回数: <span id="finalAttempts">0</span></li>
+                <li>精度: <span id="finalAccuracy">0%</span></li>
+            </ul>
+            <p id="highScoreMessage" class="highlight"></p>
+        </section>
+
+        <section class="ranking-panel">
+            <div class="ranking-header">
+                <h2>ランキング</h2>
+                <p id="rankingDescription">難易度: かんたん の最新 10 件</p>
+            </div>
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th scope="col">順位</th>
+                        <th scope="col">スコア</th>
+                        <th scope="col">登録日時</th>
+                    </tr>
+                </thead>
+                <tbody id="rankingBody">
+                    <tr><td colspan="3">まだスコアが登録されていません。</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <section class="notes">
+        <h2>このページについて</h2>
+        <p>
+            これは GitHub Pages で動作を確認するために作成した静的版です。スコアはブラウザの
+            <code>localStorage</code> にのみ保存され、他の人と共有されません。
+        </p>
+    </section>
+
+    <template id="rankingRowTemplate">
+        <tr>
+            <td class="rank"></td>
+            <td class="rank-score"></td>
+            <td class="rank-date"></td>
+        </tr>
+    </template>
+
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>

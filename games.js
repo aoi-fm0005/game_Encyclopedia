@@ -1,11 +1,11 @@
 ﻿window.GAMES = [
   {
-    id: "galactic-runner",
-    title: "Galactic Runner",
-    description: "A quick reflex runner set in deep space. Swap in your final copy deck when the game is ready.",
-    url: "./games/galactic-runner/index.html",
-    genre: "Action",
-    duration: "3-5 min",
+    id: "pages-test-game",
+    title: "ほのぼのタイピング",
+    description: "普段使わない文字の入力はむずかしい！？難易度も選べるからやってみてね♪",
+    url: "./games/pages_test_game/index.html",
+    genre: "Typing",
+    duration: "1-2 min",
     platform: "HTML/CSS/JS",
     ctaLabel: "Play"
   },
