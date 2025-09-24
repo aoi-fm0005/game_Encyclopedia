@@ -1,32 +1,32 @@
 ﻿window.GAMES = [
   {
     id: "galactic-runner",
-    title: "ギャラクティックランナー",
-    description: "小惑星帯を駆け抜けながらエネルギーオーブを集めるハイスピード・アクション。",
-    url: "https://example.com/galactic-runner",
-    genre: "アクション",
-    duration: "3〜5分",
-    platform: "WebGL",
-    ctaLabel: "プレイ"
+    title: "Galactic Runner",
+    description: "A quick reflex runner set in deep space. Swap in your final copy deck when the game is ready.",
+    url: "./games/galactic-runner/index.html",
+    genre: "Action",
+    duration: "3-5 min",
+    platform: "HTML/CSS/JS",
+    ctaLabel: "Play"
   },
   {
     id: "logic-grid",
-    title: "ロジックグリッドパズル",
-    description: "与えられたヒントを手掛かりにマスを埋める頭脳派パズル。短時間で脳トレに最適。",
-    url: "https://example.com/logic-grid",
-    genre: "パズル",
-    duration: "5〜10分",
-    platform: "HTML5",
-    ctaLabel: "プレイ"
+    title: "Logic Grid Puzzle",
+    description: "Brain-teaser with deductions. Replace this placeholder copy with the final game summary.",
+    url: "./games/logic-grid/index.html",
+    genre: "Puzzle",
+    duration: "5-10 min",
+    platform: "HTML/CSS/JS",
+    ctaLabel: "Play"
   },
   {
     id: "farm-tycoon",
-    title: "ファームタイクーン・ミニ",
-    description: "作物の栽培と取引で農場を大きくしていくシミュレーション。計画的な資源管理が鍵。",
-    url: "https://example.com/farm-tycoon",
-    genre: "シミュレーション",
-    duration: "10〜15分",
-    platform: "Canvas",
-    ctaLabel: "プレイ"
+    title: "Farm Tycoon Mini",
+    description: "Prototype tycoon loop focused on harvest-to-market decisions.",
+    url: "./games/farm-tycoon/index.html",
+    genre: "Simulation",
+    duration: "10-15 min",
+    platform: "HTML/CSS/JS",
+    ctaLabel: "Play"
   }
 ];
